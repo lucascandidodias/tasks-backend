@@ -51,6 +51,14 @@ pipeline {
 				}
             }
         }
+        stage('Funcional Test') {        	       	
+           	steps {
+           		dir('funtional-test'){
+					git credentialsId: 'github_login', url: 'https://github.com/lucascandidodias/tasks-funcional-tests.git'
+	 				bat 'mvn test'           		    
+           		}
+            }
+        }
     }
 }
 
